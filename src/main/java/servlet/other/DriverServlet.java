@@ -1,4 +1,4 @@
-package servlet;
+package servlet.other;
 
 import Factory.DaoFactory;
 import lombok.extern.slf4j.Slf4j;

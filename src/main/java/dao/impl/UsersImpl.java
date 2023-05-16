@@ -70,8 +70,33 @@ public class UsersImpl implements UsersDao {
     }
 
     @Override
+    public Users selectUsersById(Integer id) throws Exception {
+        String sql = "SELECT * FROM Logiman_Sysdb.dbo.Users WHERE userId = ?";
+        ps = connection.prepareStatement(sql);
+        ps.setInt(1, id);
+        rs = ps.executeQuery();
+        Users users = new Users();
+        try {
+            while (rs.next()) {
+                users.setUserId(rs.getInt("userId"));
+                users.setUsername(rs.getString("username"));
+                users.setUserPwd(rs.getString("userPwd"));
+                users.setUserContact(rs.getString("userContact"));
+                users.setAccountRole(rs.getString("accountRole"));
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            dbc.connClose();
+        }
+        return users;
+    }
+
+    @Override
     public List<Users> selectUsers() throws Exception {
-        String sql = "SELECT * FROM Users";
+        String sql = "SELECT * FROM Logiman_Sysdb.dbo.Users";
         ps = connection.prepareStatement(sql);
         List<Users> Users = new ArrayList<>();
         try {
@@ -82,6 +107,7 @@ public class UsersImpl implements UsersDao {
                 users.setUsername(rs.getString("username"));
                 users.setUserPwd(rs.getString("userPwd"));
                 users.setUserContact(rs.getString("userContact"));
+                users.setAccountRole(rs.getString("accountRole"));
                 Users.add(users);
             }
             rs.close();
@@ -97,11 +123,12 @@ public class UsersImpl implements UsersDao {
     @Override
     public boolean insertUsers(Users users) throws Exception {
         try {
-            String sql = "INSERT INTO Users VALUES (?, ?, ?)";
+            String sql = "INSERT INTO Logiman_Sysdb.dbo.Users VALUES (?, ?, ?, ?)";
             ps = connection.prepareStatement(sql);
             ps.setString(1, users.getUsername());
             ps.setString(2, users.getUserPwd());
             ps.setString(3, users.getUserContact());
+            ps.setString(4, users.getAccountRole());
             int i = ps.executeUpdate();
             if (i > 0) {
                 flag = true;
@@ -118,12 +145,13 @@ public class UsersImpl implements UsersDao {
     @Override
     public boolean updateUsers(Users users) throws Exception {
         try {
-            String sql = "UPDATE Users SET username = ?, userPwd = ?, userContact = ? WHERE userId = ?";
+            String sql = "UPDATE Logiman_Sysdb.dbo.Users SET username = ?, userPwd = ?, userContact = ?, accountRole = ? WHERE userId = ?";
             ps = connection.prepareStatement(sql);
             ps.setString(1, users.getUsername());
             ps.setString(2, users.getUserPwd());
             ps.setString(3, users.getUserContact());
-            ps.setInt(4, users.getUserId());
+            ps.setString(4, users.getAccountRole());
+            ps.setInt(5, users.getUserId());
             int i = ps.executeUpdate();
             if (i > 0) {
                 flag = true;
@@ -139,7 +167,7 @@ public class UsersImpl implements UsersDao {
     @Override
     public boolean deleteUsers(int userId) throws Exception {
         try {
-            String sql = "DELETE FROM Users WHERE userId = ?";
+            String sql = "DELETE FROM Logiman_Sysdb.dbo.Users WHERE userId = ?";
             ps = connection.prepareStatement(sql);
             ps.setInt(1, userId);
             int i = ps.executeUpdate();

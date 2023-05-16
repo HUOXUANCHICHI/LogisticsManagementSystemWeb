@@ -31,6 +31,7 @@ public class LoginServlet extends HttpServlet {
                 users = DaoFactory.usersDaoInstance().selectUsersByNameAndPwd(request.getParameter("username"), request.getParameter("userPwd"));
 //                request.getSession().setAttribute("users", users);
                 request.getSession().setAttribute("username", users.getUsername());
+                request.getSession().setAttribute("role", users.getAccountRole());
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("login.jsp").forward(request, response);

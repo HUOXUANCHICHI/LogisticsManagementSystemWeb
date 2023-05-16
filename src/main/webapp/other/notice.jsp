@@ -15,7 +15,7 @@
 
     <!-- Custom fonts for this template-->
     <link
-            href="vendor/fontawesome-free/css/all.min.css"
+            href="../vendor/fontawesome-free/css/all.min.css"
             rel="stylesheet"
             type="text/css"
     />
@@ -25,7 +25,7 @@
     /> -->
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet"/>
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet"/>
 </head>
 
 <body id="page-top">
@@ -39,7 +39,7 @@
         <!-- Sidebar - Brand -->
         <a
                 class="sidebar-brand d-flex align-items-center justify-content-center"
-                href="index.jsp"
+                href="../index.jsp"
         >
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
@@ -52,7 +52,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.jsp">
+            <a class="nav-link" href="../index.jsp">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>主页</span></a
             >
@@ -85,9 +85,9 @@
             >
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">登录相关：</h6>
-                    <a class="collapse-item" href="login.jsp">登录</a>
-                    <a class="collapse-item" href="register.jsp">注册</a>
-                    <a class="collapse-item" href="forgotPassword.jsp">忘记密码</a>
+                    <a class="collapse-item" href="../login.jsp">登录</a>
+                    <a class="collapse-item" href="../register.jsp">注册</a>
+                    <a class="collapse-item" href="../forgotPassword.jsp">忘记密码</a>
                 </div>
             </div>
         </li>
@@ -120,7 +120,7 @@
                     <a class="collapse-item" href="LogisticsCenterSelectServlet">物流中心信息管理</a>
                     <a class="collapse-item" href="WarehouseSelectServlet">仓库信息管理</a>
                     <a class="collapse-item" href="UsersSelectServlet">用户信息管理</a>
-                    <a class="collapse-item" href="logManage.jsp">登录日志管理</a>
+                    <a class="collapse-item" href="../logManage.jsp">登录日志管理</a>
                 </div>
             </div>
         </li>
@@ -145,8 +145,8 @@
             >
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">其它页面：</h6>
-                    <a class="collapse-item" href="404.jsp">404 Page</a>
-                    <a class="collapse-item" href="blank.jsp">Blank Page</a>
+                    <a class="collapse-item" href="../404.jsp">404 Page</a>
+                    <a class="collapse-item" href="../blank.jsp">Blank Page</a>
                 </div>
             </div>
         </li>
@@ -354,7 +354,7 @@
                                 <div class="dropdown-list-image mr-3">
                                     <img
                                             class="rounded-circle"
-                                            src="img/undraw_profile_1.svg"
+                                            src="../img/undraw_profile_1.svg"
                                             alt="..."
                                     />
                                     <div class="status-indicator bg-success"></div>
@@ -371,7 +371,7 @@
                                 <div class="dropdown-list-image mr-3">
                                     <img
                                             class="rounded-circle"
-                                            src="img/undraw_profile_2.svg"
+                                            src="../img/undraw_profile_2.svg"
                                             alt="..."
                                     />
                                     <div class="status-indicator"></div>
@@ -388,7 +388,7 @@
                                 <div class="dropdown-list-image mr-3">
                                     <img
                                             class="rounded-circle"
-                                            src="img/undraw_profile_3.svg"
+                                            src="../img/undraw_profile_3.svg"
                                             alt="..."
                                     />
                                     <div class="status-indicator bg-warning"></div>
@@ -447,7 +447,7 @@
                   >
                             <img
                                     class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg"
+                                    src="../img/undraw_profile.svg"
                             />
                         </a>
                         <!-- Dropdown - User Information -->
@@ -585,21 +585,21 @@
                 >
                     Cancel
                 </button>
-                <a class="btn btn-primary" href="login.jsp">Logout</a>
+                <a class="btn btn-primary" href="../login.jsp">Logout</a>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+<script src="../js/sb-admin-2.min.js"></script>
 
 <script>
     $(function () {

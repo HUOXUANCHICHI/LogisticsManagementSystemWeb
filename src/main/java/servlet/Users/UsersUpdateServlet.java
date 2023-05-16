@@ -24,6 +24,7 @@ public class UsersUpdateServlet extends HttpServlet {
         users.setUsername(request.getParameter("username"));
         users.setUserPwd(request.getParameter("userPwd"));
         users.setUserContact(request.getParameter("userContact"));
+        users.setAccountRole(request.getParameter("accountRole"));
         try {
             if (DaoFactory.usersDaoInstance().updateUsers(users)) {
                 request.getRequestDispatcher("UsersSelectServlet").forward(request, response);

@@ -1,13 +1,14 @@
 package servlet.Users;
 
 import Factory.DaoFactory;
+import lombok.extern.slf4j.Slf4j;
 import model.Users;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-
+@Slf4j
 @WebServlet(name = "UserInsertServlet", value = "/UserInsertServlet")
 public class UserInsertServlet extends HttpServlet {
     @Override
@@ -17,8 +18,7 @@ public class UserInsertServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
+        log.info("user insert...");
         Users users = new Users();
         users.setUsername(request.getParameter("username"));
         users.setUserPwd(request.getParameter("userPwd"));
