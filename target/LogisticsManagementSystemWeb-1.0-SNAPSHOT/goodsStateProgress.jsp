@@ -5,7 +5,7 @@
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <c:if test="${progressCollect==null}">
-    <c:redirect url="/GoodsSelectServlet/GoodsSelectServletByProgress"/>
+    <c:redirect url="/GoodsSelectServletByProgress"/>
 </c:if>
 <!DOCTYPE html>
 <html lang="en">
@@ -416,25 +416,25 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="goods" items="${progressCollect}">
+                                <c:forEach var="progressgoods" items="${progressCollect}">
                                     <tr>
-                                        <td>${goods.goodsId}</td>
-                                        <td>${goods.goodsName}</td>
-                                        <td>${goods.goodsAddress}</td>
-                                        <td>${goods.goodsWeight}</td>
-                                        <td>${goods.range}</td>
-                                        <td>${goods.customName}</td>
-                                        <td>${goods.state}</td>
-                                        <td>${goods.date}</td>
+                                        <td>${progressgoods.goodsId}</td>
+                                        <td>${progressgoods.goodsName}</td>
+                                        <td>${progressgoods.goodsAddress}</td>
+                                        <td>${progressgoods.goodsWeight}</td>
+                                        <td>${progressgoods.range}</td>
+                                        <td>${progressgoods.customName}</td>
+                                        <td>${progressgoods.state}</td>
+                                        <td>${progressgoods.date}</td>
                                         <td>
-                                            <a href="GoodsDispatcherServlet?goodsId=${goods.goodsId}">
+                                            <a href="GoodsDispatcherServlet?goodsId=${progressgoods.goodsId}">
                                                 <button class="btn btn-primary btn-user btn-block">
                                                     修改
                                                 </button>
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="GoodsDeleteServlet?goodsId=${goods.goodsId}" onclick="if(!confirm('确认要删除这条货物信息吗？'))
+                                            <a href="GoodsDeleteServlet?goodsId=${progressgoods.goodsId}" onclick="if(!confirm('确认要删除这条货物信息吗？'))
                                             window.event.returnValue = false;">
                                                 <button class="btn btn-primary btn-user btn-block">
                                                     删除

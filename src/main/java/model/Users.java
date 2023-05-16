@@ -11,6 +11,8 @@ public class Users implements Serializable {
     private String username;
     private String userPwd;
     private String userContact;
-/*    private String accountIsStop;
-    private String accountRole;*/
+    /**
+     * 0：用户 1：管理员 2：员工
+     */
+    private String accountRole;
 }

@@ -17,7 +17,6 @@ public class LoginServlet extends HttpServlet {
         this.doGet(request, response);
     }
 
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -26,12 +25,12 @@ public class LoginServlet extends HttpServlet {
 
         users.setUsername(request.getParameter("username"));
         users.setUserPwd(request.getParameter("userPwd"));
-
         users.setUserContact(request.getParameter("userContact"));
         try {
             if (DaoFactory.usersDaoInstance().login(users)) {
-                users = DaoFactory.usersDaoInstance().selectUsersByName(request.getParameter("username"));
-                request.getSession().setAttribute("users", users);
+                users = DaoFactory.usersDaoInstance().selectUsersByNameAndPwd(request.getParameter("username"), request.getParameter("userPwd"));
+//                request.getSession().setAttribute("users", users);
+                request.getSession().setAttribute("username", users.getUsername());
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("login.jsp").forward(request, response);

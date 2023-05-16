@@ -1,5 +1,9 @@
-<%@ page import="model.Manufacturer" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -426,17 +430,35 @@
                                 />
                             </div>
                         </div>
+<%--                        <div class="form-group">--%>
+<%--                            <div class="col-sm-6 mb-3 mb-sm-0">--%>
+<%--                                <input--%>
+<%--                                        type="text"--%>
+<%--                                        class="form-control form-control-user"--%>
+<%--                                        id="state"--%>
+<%--                                        aria-describedby="emailHelp"--%>
+<%--                                        placeholder="状态"--%>
+<%--                                        name="state"--%>
+<%--                                        value="${goods.state}"--%>
+<%--                                />--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
                         <div class="form-group">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input
-                                        type="text"
-                                        class="form-control form-control-user"
-                                        id="state"
-                                        aria-describedby="emailHelp"
-                                        placeholder="状态"
-                                        name="state"
-                                        value="${goods.state}"
-                                />
+                                <div class="dropdown">
+                                    <select
+                                            id="state"
+                                            class="form-control
+                                            form-control-placeholder"
+                                            placeholder="状态"
+                                            name="state"
+                                    >
+                                        <option value="-1" disabled selected hidden>${goods.state}</option>
+                                        <c:forEach var="goods1" items="${goodsListByState}">
+                                            <option value="${goods1.state}" style="color: black;">${goods1.state}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -535,13 +557,6 @@
 <script src="js/getUrlVariable.js"></script>
 <script>
     document.getElementById("goodsId").value = getUrlVariable("goodsId");
-    /*document.getElementById("goodsName").value = getUrlVariable("goodsName");
-    document.getElementById("goodsAddress").value = getUrlVariable("goodsAddress");
-    document.getElementById("goodsWeight").value = getUrlVariable("goodsWeight");
-    document.getElementById("range").value = getUrlVariable("range");
-    document.getElementById("customName").value = getUrlVariable("customName");
-    document.getElementById("state").value = getUrlVariable("state");
-    document.getElementById("date").value = getUrlVariable("date");*/
 </script>
 </body>
 </html>

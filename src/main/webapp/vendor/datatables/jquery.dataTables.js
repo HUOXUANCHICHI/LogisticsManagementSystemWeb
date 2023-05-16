@@ -1,5 +1,5 @@
 /*! DataTables 1.10.24
- * ©2008-2021 SpryMedia Ltd - datatables.net/license
+ * ©2008-2022 SpryMedia Ltd - datatables.net/license
  */
 
 /**
@@ -9,7 +9,7 @@
  * @file        jquery.dataTables.js
  * @author      SpryMedia Ltd
  * @contact     www.datatables.net
- * @copyright   Copyright 2008-2021 SpryMedia Ltd.
+ * @copyright   Copyright 2008-2022 SpryMedia Ltd.
  *
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license

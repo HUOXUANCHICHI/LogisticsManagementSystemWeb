@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content="A project modified by a SIT student."/>
-    <meta name="author" content="Soldier_RMB"/>
+    <meta name="author" content="${username}"/>
 
     <title>物流信息管理系统-货物运输信息管理</title>
 
@@ -270,7 +270,7 @@
                                 aria-expanded="false"
                         >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                  >Soldier_RMB</span
+                  >${username}</span
                   >
                             <img
                                     class="img-profile rounded-circle"
@@ -360,6 +360,38 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <div class="dropdown">
+                                        <select
+                                                id="carNumber"
+                                                class="form-control
+                                            form-control-placeholder"
+                                                name="carNumber">
+                                            <option value="-1" disabled selected hidden>车辆</option>
+                                            <c:forEach var="vehicles" items="${vehicleList}">
+                                                <option value="${vehicles.carNumber}" style="color: black;">${vehicles.carNumber}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12 mb-3 mb-sm-0">
+                                    <div class="dropdown">
+                                        <select
+                                                id="driverName"
+                                                class="form-control
+                                            form-control-placeholder"
+                                                name="driverName">
+                                            <option value="-1" disabled selected hidden>司机</option>
+                                            <c:forEach var="drivers" items="${driverList}">
+                                                <option value="${drivers.driverName}" style="color: black;">${drivers.driverName}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user"
                                            name="range"
                                            aria-describedby="emailHelp" placeholder="范围"/>
@@ -374,9 +406,18 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user"
-                                           name="state"
-                                           aria-describedby="emailHelp" placeholder="状态"/>
+                                    <div class="dropdown">
+                                        <select
+                                                id="state"
+                                                class="form-control
+                                            form-control-placeholder"
+                                                name="state">
+                                            <option value="-1" disabled selected hidden>送达</option>
+                                            <c:forEach var="goods1" items="${goodsListByState}">
+                                                <option value="${goods1.state}" style="color: black;">${goods1.state}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -407,6 +448,8 @@
                                     <th>货物名称</th>
                                     <th>货物地址</th>
                                     <th>货物重量</th>
+                                    <th>车辆</th>
+                                    <th>司机</th>
                                     <th>运送范围</th>
                                     <th>客户</th>
                                     <th>状态</th>
@@ -422,6 +465,8 @@
                                         <td>${arrivegoods.goodsName}</td>
                                         <td>${arrivegoods.goodsAddress}</td>
                                         <td>${arrivegoods.goodsWeight}</td>
+                                        <td>${arrivegoods.carNumber}</td>
+                                        <td>${arrivegoods.driverName}</td>
                                         <td>${arrivegoods.range}</td>
                                         <td>${arrivegoods.customName}</td>
                                         <td>${arrivegoods.state}</td>
@@ -458,7 +503,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Soldier_RMB 2021</span>
+                    <span>Copyright &copy; ablaze 2022</span>
                 </div>
             </div>
         </footer>

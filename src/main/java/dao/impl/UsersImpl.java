@@ -21,7 +21,7 @@ public class UsersImpl implements UsersDao {
     @Override
     public boolean login(Users users) throws Exception {
         try {
-            String sql = "SELECT * FROM Users WHERE username = ? AND userPwd = ?";
+            String sql = "SELECT * FROM Logiman_Sysdb.dbo.users WHERE username = ? AND userPwd = ?";
             ps = connection.prepareStatement(sql);
             ps.setString(1, users.getUsername());
             ps.setString(2, users.getUserPwd());
@@ -31,6 +31,7 @@ public class UsersImpl implements UsersDao {
                 users.setUsername(users.getUsername());
                 users.setUserPwd(users.getUserPwd());
                 users.setUserContact(users.getUserContact());
+                users.setAccountRole(users.getAccountRole());
                 rs.close();
                 ps.close();
             }
@@ -43,30 +44,31 @@ public class UsersImpl implements UsersDao {
     }
 
     @Override
-    public Users selectUsersByName(String usersname) throws Exception {
+    public Users selectUsersByNameAndPwd(String username, String password) throws Exception {
+        String sql = "SELECT * FROM Logiman_Sysdb.dbo.Users WHERE username = ? AND userPwd = ?";
+        ps = connection.prepareStatement(sql);
+        ps.setString(1, username);
+        ps.setString(2, password);
+        rs = ps.executeQuery();
+        Users users = new Users();
         try {
-            String sql = "SELECT * FROM Users WHERE username = ?";
-            ps = connection.prepareStatement(sql);
-            ps.setString(1, usersname);
-            rs = ps.executeQuery();
-            Users users = new Users();
-            if (rs.next()) {
-                flag = true;
-                users.setUserId(users.getUserId());
-                users.setUsername(users.getUsername());
-                users.setUserPwd(users.getUserPwd());
-                users.setUserContact(users.getUserContact());
-                rs.close();
-                ps.close();
+            while (rs.next()) {
+                users.setUserId(rs.getInt("userId"));
+                users.setUsername(rs.getString("username"));
+                users.setUserPwd(rs.getString("userPwd"));
+                users.setUserContact(rs.getString("userContact"));
+                users.setAccountRole(rs.getString("accountRole"));
             }
-            return users;
+            rs.close();
+            ps.close();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             dbc.connClose();
         }
-        return null;
+        return users;
     }
+
     @Override
     public List<Users> selectUsers() throws Exception {
         String sql = "SELECT * FROM Users";

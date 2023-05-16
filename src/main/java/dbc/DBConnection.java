@@ -25,12 +25,13 @@ public class DBConnection {
     }
 
     public void connClose() {
-        if (conn != null)
+        if (conn != null) {
             try {
                 conn.close();
             } catch (Exception ex) {
                 ex.printStackTrace();
                 System.out.println("Fail to close connection object!");
             }
+        }
     }
 }

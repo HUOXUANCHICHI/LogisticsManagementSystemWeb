@@ -14,7 +14,7 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="description" content="A project modified by a SIT student."/>
-    <meta name="author" content="Soldier_RMB"/>
+    <meta name="author" content="${username}"/>
 
     <title>物流信息管理系统-货物信息修改</title>
 
@@ -296,7 +296,7 @@
                                 aria-expanded="false"
                         >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                  >Soldier_RMB</span
+                  >${username}</span
                   >
                             <img
                                     class="img-profile rounded-circle"
@@ -406,6 +406,51 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="dropdown">
+                                    <select
+                                            id="carNumber"
+                                            class="form-control
+                                            form-control-placeholder"
+                                            placeholder="车牌号"
+                                            name="carNumber"
+                                    >
+<%--                                        <option value="-1">${vehicle.carNumber}</option>--%>
+                                        <c:forEach var="vehicle" items="${vehicleList}">
+                                            <c:choose>
+                                                <c:when test="${vehicle.carNumber==goods.carNumber}">
+                                                    <option value="${vehicle.carNumber}" selected>${vehicle.carNumber}</option>
+                                                </c:when>
+                                            </c:choose>
+                                            <option value="${vehicle.carNumber}" style="color: black;">${vehicle.carNumber}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="dropdown">
+                                    <select
+                                            id="driverName"
+                                            class="form-control
+                                            form-control-placeholder"
+                                            placeholder="司机"
+                                            name="driverName"
+                                    >
+                                        <c:forEach var="driver" items="${driverList}">
+                                            <c:choose>
+                                                <c:when test="${driver.driverName==goods.driverName}">
+                                                    <option value="${driver.driverName}" selected>${driver.driverName}</option>
+                                                </c:when>
+                                            </c:choose>
+                                            <option value="${driver.driverName}" style="color: black;">${driver.driverName}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
                                 <input
                                         type="text"
                                         class="form-control form-control-user"
@@ -450,11 +495,13 @@
                                             id="state"
                                             class="form-control
                                             form-control-placeholder"
-                                            placeholder="状态"
-                                            name="state"
-                                    >
-                                        <option value="-1" disabled selected hidden>${goods.state}</option>
+                                            name="state">
                                         <c:forEach var="goods1" items="${goodsListByState}">
+                                            <c:choose>
+                                                <c:when test="${goods1.state==goods.state}">
+                                                    <option value="${goods1.state}" selected>${goods1.state}</option>
+                                                </c:when>
+                                            </c:choose>
                                             <option value="${goods1.state}" style="color: black;">${goods1.state}</option>
                                         </c:forEach>
                                     </select>
@@ -491,7 +538,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Soldier_RMB 2021</span>
+                    <span>Copyright &copy; ablaze 2022</span>
                 </div>
             </div>
         </footer>

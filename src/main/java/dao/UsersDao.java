@@ -7,7 +7,7 @@ import java.util.List;
 public interface UsersDao {
     boolean login(Users users) throws Exception;
 
-    Users selectUsersByName(String username) throws Exception;
+    Users selectUsersByNameAndPwd(String username, String password) throws Exception;
 
     List<Users> selectUsers() throws Exception;
 

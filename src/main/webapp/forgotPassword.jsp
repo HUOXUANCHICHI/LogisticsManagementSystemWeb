@@ -9,7 +9,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="description" content="A project modified by a SIT student." />
-    <meta name="author" content="Soldier_RMB" />
+    <meta name="author" content="${username}" />
 
     <title>企业消息系统-忘记密码</title>
 

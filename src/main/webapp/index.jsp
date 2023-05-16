@@ -9,7 +9,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="description" content="A project modified by a SIT student." />
-    <meta name="author" content="Soldier_RMB" />
+    <meta name="author" content="${username}" />
 
     <title>物流信息管理系统</title>
 
@@ -193,6 +193,7 @@
           >
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">货物运输：</h6>
+              <a class="collapse-item" href="goodsStateStock.jsp" target="right">货物库存</a>
               <a class="collapse-item" href="goodsStateProgress.jsp" target="right">货物运输</a>
               <a class="collapse-item" href="goodsStateArrive.jsp" target="right">货物送达</a>
               <a class="collapse-item" href="goodsStateOver.jsp" target="right">货物验收</a>

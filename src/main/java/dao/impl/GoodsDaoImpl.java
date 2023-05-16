@@ -36,6 +36,8 @@ public class GoodsDaoImpl implements GoodsDao {
                 goods.setGoodsName(rs.getString("goodsName"));
                 goods.setGoodsAddress(rs.getString("goodsAddress"));
                 goods.setGoodsWeight(rs.getString("goodsWeight"));
+                goods.setCarNumber(rs.getString("carNumber"));
+                goods.setDriverName(rs.getString("driverName"));
                 goods.setRange(rs.getString("range"));
                 goods.setCustomName(rs.getString("customName"));
                 goods.setState(rs.getString("state"));
@@ -53,19 +55,21 @@ public class GoodsDaoImpl implements GoodsDao {
     }
 
     @Override
-    public boolean insertGoods(Goods Goods) throws Exception {
+    public boolean insertGoods(Goods Goods) {
         try {
-            String sql = "INSERT INTO Logiman_Sysdb.dbo.Goods VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Logiman_Sysdb.dbo.Goods VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             Connection connection = dbc.getConnection();
             ps = connection.prepareStatement(sql);
             ps.setInt(1, Goods.getGoodsId());
             ps.setString(2, Goods.getGoodsName());
             ps.setString(3, Goods.getGoodsAddress());
             ps.setString(4, Goods.getGoodsWeight());
-            ps.setString(5, Goods.getRange());
-            ps.setString(6, Goods.getCustomName());
-            ps.setString(7, Goods.getState());
-            ps.setString(8, Goods.getDate());
+            ps.setString(5, Goods.getCarNumber());
+            ps.setString(6, Goods.getDriverName());
+            ps.setString(7, Goods.getRange());
+            ps.setString(8, Goods.getCustomName());
+            ps.setString(9, Goods.getState());
+            ps.setString(10, Goods.getDate());
             int i = ps.executeUpdate();
             if (i > 0) {
                 flag = true;
@@ -80,19 +84,21 @@ public class GoodsDaoImpl implements GoodsDao {
     }
 
     @Override
-    public boolean updateGoods(Goods Goods) throws Exception {
+    public boolean updateGoods(Goods Goods) {
         try {
-            String sql = "UPDATE Logiman_Sysdb.dbo.Goods SET GoodsName = ?, goodsAddress = ?, goodsWeight = ?, range = ?, customName= ?, state= ?, date= ? WHERE goodsId = ?";
+            String sql = "UPDATE Logiman_Sysdb.dbo.Goods SET GoodsName = ?, goodsAddress = ?, goodsWeight = ?, carNumber = ?, driverName = ?, range = ?, customName= ?, state= ?, date= ? WHERE goodsId = ?";
             Connection connection = dbc.getConnection();
             ps = connection.prepareStatement(sql);
             ps.setString(1, Goods.getGoodsName());
             ps.setString(2, Goods.getGoodsAddress());
             ps.setString(3, Goods.getGoodsWeight());
-            ps.setString(4, Goods.getRange());
-            ps.setString(5, Goods.getCustomName());
-            ps.setString(6, Goods.getState());
-            ps.setString(7, Goods.getDate());
-            ps.setInt(8, Goods.getGoodsId());
+            ps.setString(4, Goods.getCarNumber());
+            ps.setString(5, Goods.getDriverName());
+            ps.setString(6, Goods.getRange());
+            ps.setString(7, Goods.getCustomName());
+            ps.setString(8, Goods.getState());
+            ps.setString(9, Goods.getDate());
+            ps.setInt(10, Goods.getGoodsId());
             int i = ps.executeUpdate();
             if (i > 0) {
                 flag = true;
@@ -106,7 +112,7 @@ public class GoodsDaoImpl implements GoodsDao {
     }
 
     @Override
-    public boolean deleteGoods(int goodsId) throws Exception {
+    public boolean deleteGoods(int goodsId) {
         try {
             String sql = "DELETE FROM Logiman_Sysdb.dbo.Goods WHERE goodsId = ?";
             Connection connection = dbc.getConnection();
@@ -138,6 +144,8 @@ public class GoodsDaoImpl implements GoodsDao {
                 goods.setGoodsName(rs.getString("goodsName"));
                 goods.setGoodsAddress(rs.getString("goodsAddress"));
                 goods.setGoodsWeight(rs.getString("goodsWeight"));
+                goods.setCarNumber(rs.getString("carNumber"));
+                goods.setDriverName(rs.getString("driverName"));
                 goods.setRange(rs.getString("range"));
                 goods.setCustomName(rs.getString("customName"));
                 goods.setState(rs.getString("state"));

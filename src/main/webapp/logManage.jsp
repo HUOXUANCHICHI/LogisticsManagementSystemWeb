@@ -9,7 +9,7 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="description" content="A project modified by a SIT student."/>
-    <meta name="author" content="Soldier_RMB"/>
+    <meta name="author" content="${username}"/>
 
     <title>物流信息管理系统-登录日志管理</title>
 
@@ -297,7 +297,7 @@
                                 aria-expanded="false"
                         >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Soldier_RMB</span
+                    >${username}</span
                   >
                             <img
                                     class="img-profile rounded-circle"
@@ -374,27 +374,27 @@
                                 <tr>
                                     <td>admin</td>
                                     <td>127.0.0.1</td>
-                                    <td>2021-12-5 00:00</td>
+                                    <td>2022-12-5 00:00</td>
                                 </tr>
                                 <tr>
                                     <td>admin</td>
                                     <td>127.0.0.1</td>
-                                    <td>2021-12-5 01:00</td>
+                                    <td>2022-12-5 01:00</td>
                                 </tr>
                                 <tr>
                                     <td>admin</td>
                                     <td>127.0.0.1</td>
-                                    <td>2021-12-5 02:00</td>
+                                    <td>2022-12-5 02:00</td>
                                 </tr>
                                 <tr>
                                     <td>admin</td>
                                     <td>127.0.0.1</td>
-                                    <td>2021-12-5 03:00</td>
+                                    <td>2022-12-5 03:00</td>
                                 </tr>
                                 <tr>
                                     <td>admin</td>
                                     <td>127.0.0.1</td>
-                                    <td>2021-12-5 04:00</td>
+                                    <td>2022-12-5 04:00</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -411,7 +411,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Soldier_RMB 2021</span>
+                    <span>Copyright &copy; ablaze 2022</span>
                 </div>
             </div>
         </footer>

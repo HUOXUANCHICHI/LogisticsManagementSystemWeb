@@ -9,7 +9,7 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="description" content="A project modified by a SIT student."/>
-    <meta name="author" content="Soldier_RMB"/>
+    <meta name="author" content="${username}"/>
 
     <title>物流信息管理系统-注册</title>
 

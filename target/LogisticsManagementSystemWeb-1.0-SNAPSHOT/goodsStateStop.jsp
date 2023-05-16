@@ -5,7 +5,7 @@
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <c:if test="${stopCollect==null}">
-    <c:redirect url="/GoodsSelectServlet/GoodsSelectServletByStop"/>
+    <c:redirect url="/GoodsSelectServletByStop"/>
 </c:if>
 <!DOCTYPE html>
 <html lang="en">
@@ -416,25 +416,25 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="goods" items="${stopCollect}">
+                                <c:forEach var="stopgoods" items="${stopCollect}">
                                     <tr>
-                                        <td>${goods.goodsId}</td>
-                                        <td>${goods.goodsName}</td>
-                                        <td>${goods.goodsAddress}</td>
-                                        <td>${goods.goodsWeight}</td>
-                                        <td>${goods.range}</td>
-                                        <td>${goods.customName}</td>
-                                        <td>${goods.state}</td>
-                                        <td>${goods.date}</td>
+                                        <td>${stopgoods.goodsId}</td>
+                                        <td>${stopgoods.goodsName}</td>
+                                        <td>${stopgoods.goodsAddress}</td>
+                                        <td>${stopgoods.goodsWeight}</td>
+                                        <td>${stopgoods.range}</td>
+                                        <td>${stopgoods.customName}</td>
+                                        <td>${stopgoods.state}</td>
+                                        <td>${stopgoods.date}</td>
                                         <td>
-                                            <a href="GoodsDispatcherServlet?goodsId=${goods.goodsId}">
+                                            <a href="GoodsDispatcherServlet?goodsId=${stopgoods.goodsId}">
                                                 <button class="btn btn-primary btn-user btn-block">
                                                     修改
                                                 </button>
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="GoodsDeleteServlet?goodsId=${goods.goodsId}" onclick="if(!confirm('确认要删除这条货物信息吗？'))
+                                            <a href="GoodsDeleteServlet?goodsId=${stopgoods.goodsId}" onclick="if(!confirm('确认要删除这条货物信息吗？'))
                                             window.event.returnValue = false;">
                                                 <button class="btn btn-primary btn-user btn-block">
                                                     删除
@@ -452,7 +452,7 @@
             <!-- End of Custom -->
             <!-- /.container-fluid -->
         </div>
-        <!-- End of Main Content -->
+        <!-- End of Main Content-->
 
         <!-- Footer -->
         <footer class="sticky-footer bg-white">

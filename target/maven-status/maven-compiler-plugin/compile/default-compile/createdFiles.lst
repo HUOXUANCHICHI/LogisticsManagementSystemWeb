@@ -46,6 +46,7 @@ servlet\Warehouse\WarehouseUpdateServlet.class
 servlet\Users\UsersUpdateServlet.class
 servlet\Goods\GoodsSelectServlet.class
 model\Account.class
+servlet\Goods\GoodsSelectServletByStock.class
 servlet\LogisticsCenter\LogisticsCenterUpdateServlet.class
 servlet\UserRegisterServlet.class
 servlet\Manufacturer\ManufacturerDeleteServlet.class

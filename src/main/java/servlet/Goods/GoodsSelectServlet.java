@@ -1,8 +1,14 @@
 package servlet.Goods;
 
 import Factory.DaoFactory;
+import dao.DriverDao;
+import dao.VehicleDao;
+import dao.impl.DriverDaoImpl;
+import dao.impl.VehicleDaoImpl;
 import lombok.extern.slf4j.Slf4j;
+import model.Driver;
 import model.Goods;
+import model.Vehicle;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +16,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 /*@Slf4j
@@ -141,10 +150,21 @@ public class GoodsSelectServlet extends HttpServlet {
             List<Goods> goodsList = DaoFactory.goodsDaoInstance().selectGoods();
             log.info("goods.select...");
             goodsList.forEach(System.out::println);
-            List<Goods> collect = goodsList.stream()
-                    .filter(goods -> "已送达".equals(goods.getState()))
-                    .collect(Collectors.toList());
 
+            log.info("按状态去重后");
+            List<Goods> goodsListByState = goodsList.stream()
+                    .collect(Collectors.collectingAndThen(
+                            Collectors.toCollection(
+                                    () -> new TreeSet<>(
+                                            Comparator.comparing(Goods::getState))), ArrayList::new));
+
+            VehicleDao vehicleDao = new VehicleDaoImpl();
+            List<Vehicle> vehicleList = vehicleDao.selectVehicle();
+            DriverDao driverDao = new DriverDaoImpl();
+            List<Driver> driverList = driverDao.selectDriver();
+            request.getSession().setAttribute("driverList", driverList);
+            request.getSession().setAttribute("vehicleList", vehicleList);
+            request.getSession().setAttribute("goodsListByState", goodsListByState);
             request.getSession().setAttribute("goodsList", goodsList);
 
         } catch (Exception e) {

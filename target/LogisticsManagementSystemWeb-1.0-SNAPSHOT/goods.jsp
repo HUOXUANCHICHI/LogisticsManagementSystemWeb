@@ -5,7 +5,7 @@
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <c:if test="${goodsList==null}">
-    <c:redirect url="/GoodsSelectServlet/GoodsSelectServlet"/>
+    <c:redirect url="/GoodsSelectServlet"/>
 </c:if>
 <!DOCTYPE html>
 <html lang="en">

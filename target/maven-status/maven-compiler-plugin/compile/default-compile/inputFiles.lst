@@ -68,6 +68,7 @@ G:\JavaWeb\IDEAWorkSpace\LogisticsManagementSystemWeb\src\main\java\servlet\User
 G:\JavaWeb\IDEAWorkSpace\LogisticsManagementSystemWeb\src\main\java\servlet\Manufacturer\ManufacturerSelectServlet.java
 G:\JavaWeb\IDEAWorkSpace\LogisticsManagementSystemWeb\src\main\java\Factory\DaoFactory.java
 G:\JavaWeb\IDEAWorkSpace\LogisticsManagementSystemWeb\src\main\java\servlet\LoginServlet.java
+G:\JavaWeb\IDEAWorkSpace\LogisticsManagementSystemWeb\src\main\java\servlet\Goods\GoodsSelectServletByStock.java
 G:\JavaWeb\IDEAWorkSpace\LogisticsManagementSystemWeb\src\main\java\dao\UsersDao.java
 G:\JavaWeb\IDEAWorkSpace\LogisticsManagementSystemWeb\src\main\java\servlet\DriverServlet.java
 G:\JavaWeb\IDEAWorkSpace\LogisticsManagementSystemWeb\src\main\java\servlet\Manufacturer\ManufacturerDeleteServlet.java

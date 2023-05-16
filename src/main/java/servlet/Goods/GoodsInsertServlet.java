@@ -28,6 +28,8 @@ public class GoodsInsertServlet extends HttpServlet {
         goods.setGoodsName(request.getParameter("goodsName"));
         goods.setGoodsAddress(request.getParameter("goodsAddress"));
         goods.setGoodsWeight(request.getParameter("goodsWeight"));
+        goods.setCarNumber(request.getParameter("carNumber"));
+        goods.setDriverName(request.getParameter("driverName"));
         goods.setRange(request.getParameter("range"));
         goods.setCustomName(request.getParameter("customName"));
         goods.setState(request.getParameter("state"));
@@ -35,6 +37,7 @@ public class GoodsInsertServlet extends HttpServlet {
         try {
             if (DaoFactory.goodsDaoInstance().insertGoods(goods)) {
                 log.info("goods.add...");
+                System.out.println(goods);
                 request.getRequestDispatcher("GoodsSelectServlet").forward(request, response);
             }
         } catch (Exception e) {

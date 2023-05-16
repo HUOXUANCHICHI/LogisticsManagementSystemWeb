@@ -193,7 +193,7 @@
           >
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">货物运输：</h6>
-              <a class="collapse-item" href="goodsStateProgress.jsp" target="right">运输途中</a>
+              <a class="collapse-item" href="goodsStateProgress.jsp" target="right">货物运输</a>
               <a class="collapse-item" href="goodsStateArrive.jsp" target="right">货物送达</a>
               <a class="collapse-item" href="goodsStateOver.jsp" target="right">货物验收</a>
               <a class="collapse-item" href="goodsStateStop.jsp" target="right">货物中断</a>

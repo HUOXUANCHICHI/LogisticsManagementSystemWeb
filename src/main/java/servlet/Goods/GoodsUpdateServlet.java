@@ -26,6 +26,8 @@ public class GoodsUpdateServlet extends HttpServlet {
         goods.setGoodsName(request.getParameter("goodsName"));
         goods.setGoodsAddress(request.getParameter("goodsAddress"));
         goods.setGoodsWeight(request.getParameter("goodsWeight"));
+        goods.setCarNumber(request.getParameter("carNumber"));
+        goods.setDriverName(request.getParameter("driverName"));
         goods.setRange(request.getParameter("range"));
         goods.setCustomName(request.getParameter("customName"));
         goods.setState(request.getParameter("state"));

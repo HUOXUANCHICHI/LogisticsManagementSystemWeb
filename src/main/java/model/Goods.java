@@ -19,6 +19,8 @@ public class Goods implements Serializable {
     private String goodsName;
     private String goodsAddress;
     private String goodsWeight;
+    private String carNumber;
+    private String driverName;
     private String range;
     private String customName;
     private String state;

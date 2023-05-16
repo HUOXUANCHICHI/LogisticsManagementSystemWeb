@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content="A project modified by a SIT student."/>
-    <meta name="author" content="Soldier_RMB"/>
+    <meta name="author" content="${username}"/>
 
     <title>物流信息管理系统-仓库信息管理</title>
 
@@ -269,7 +269,7 @@
                                 aria-expanded="false"
                         >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Soldier_RMB</span
+                    >${username}</span
                   >
                             <img
                                     class="img-profile rounded-circle"
@@ -429,7 +429,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Soldier_RMB 2021</span>
+                    <span>Copyright &copy; ablaze 2022</span>
                 </div>
             </div>
         </footer>

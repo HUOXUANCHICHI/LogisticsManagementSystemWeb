@@ -1,9 +1,15 @@
 package servlet.Goods;
 
+import dao.DriverDao;
 import dao.GoodsDao;
+import dao.VehicleDao;
+import dao.impl.DriverDaoImpl;
 import dao.impl.GoodsDaoImpl;
+import dao.impl.VehicleDaoImpl;
 import lombok.extern.slf4j.Slf4j;
+import model.Driver;
 import model.Goods;
+import model.Vehicle;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,6 +47,12 @@ public class GoodsDispatcherServlet extends HttpServlet {
                                             Comparator.comparing(Goods::getState))), ArrayList::new));
 //                    .forEach(System.out::println);
 
+            VehicleDao vehicleDao = new VehicleDaoImpl();
+            List<Vehicle> vehicleList = vehicleDao.selectVehicle();
+            DriverDao driverDao = new DriverDaoImpl();
+            List<Driver> driverList = driverDao.selectDriver();
+            request.getSession().setAttribute("driverList", driverList);
+            request.getSession().setAttribute("vehicleList", vehicleList);
             request.getSession().setAttribute("goodsListByState", goodsListByState);
             request.getSession().setAttribute("goods", goods);
         } catch (Exception e) {
